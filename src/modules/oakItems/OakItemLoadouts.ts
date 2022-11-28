@@ -1,20 +1,25 @@
 import {
-    Observable as KnockoutObservable,
     Computed as KnockoutComputed,
+    Observable as KnockoutObservable
 } from 'knockout';
-import { Saveable } from '../DataStore/common/Saveable';
-import OakItemType from '../enums/OakItemType';
+
 import OakItemLoadout from './OakItemLoadout';
+import OakItemType from '../enums/OakItemType';
+import { Saveable } from '../DataStore/common/Saveable';
 
 export default class OakItemLoadouts implements Saveable {
-    private static MAX_SLOTS = 3;
+    private static MAX_SLOTS = 5;
 
     saveKey = 'oakItemLoadouts';
 
     defaults = {};
 
-    loadouts: Array<OakItemLoadout> = Array(OakItemLoadouts.MAX_SLOTS).fill(0).map((_, i) => new OakItemLoadout(`Loadout ${i + 1}`));
-    selectedLoadout: KnockoutObservable<number> = ko.observable(0).extend({ numeric: 0 });
+    loadouts: Array<OakItemLoadout> = Array(OakItemLoadouts.MAX_SLOTS)
+        .fill(0)
+        .map((_, i) => new OakItemLoadout(`Loadout ${i + 1}`));
+    selectedLoadout: KnockoutObservable<number> = ko
+        .observable(0)
+        .extend({ numeric: 0 });
 
     activateLoadout(index: number) {
         if (App.game.challenges.list.disableOakItems.active()) {
@@ -38,7 +43,10 @@ export default class OakItemLoadouts implements Saveable {
             if (index !== -1) {
                 loadout.splice(index, 1);
             }
-        } else if (loadout().length < App.game.oakItems.maxActiveCount() && App.game.oakItems.isUnlocked(item)) {
+        } else if (
+            loadout().length < App.game.oakItems.maxActiveCount()
+            && App.game.oakItems.isUnlocked(item)
+        ) {
             loadout.push(item);
         }
     }
@@ -51,16 +59,21 @@ export default class OakItemLoadouts implements Saveable {
         return this.loadouts[this.selectedLoadout()];
     }
 
-    fromJSON(json: Array<{name: string, loadout: Array<number>}>) {
+    fromJSON(json: Array<{ name: string; loadout: Array<number> }>) {
         json?.forEach((loadout, index) => {
-            this.loadouts[index] = new OakItemLoadout(decodeURI(loadout.name), loadout.loadout);
+            this.loadouts[index] = new OakItemLoadout(
+                decodeURI(loadout.name),
+                loadout.loadout,
+            );
         });
     }
 
     toJSON() {
-        return ko.toJS(this.loadouts.map((loadout) => ({
-            ...loadout,
-            name: encodeURI(loadout.name()),
-        })));
+        return ko.toJS(
+            this.loadouts.map((loadout) => ({
+                ...loadout,
+                name: encodeURI(loadout.name()),
+            })),
+        );
     }
 }
