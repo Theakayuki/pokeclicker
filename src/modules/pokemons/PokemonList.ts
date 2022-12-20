@@ -4906,7 +4906,7 @@ export const pokemonList = createPokemonArray(
     },
     {
         'id': 129.06,
-        'name': 'Magikarp Orange Two Tone',
+        'name': 'Magikarp Orange Two-Tone',
         'catchRate': 255,
         'type': [PokemonType.Water],
         'levelType': LevelType.slow,
@@ -4966,7 +4966,7 @@ export const pokemonList = createPokemonArray(
     },
     {
         'id': 129.09,
-        'name': 'Magikarp Pink Two Tone',
+        'name': 'Magikarp Pink Two-Tone',
         'catchRate': 255,
         'type': [PokemonType.Water],
         'levelType': LevelType.slow,
@@ -14535,8 +14535,8 @@ export const pokemonList = createPokemonArray(
             'hitpoints': 120,
             'attack': 70,
             'specialAttack': 75,
-            'defense': 120,
-            'specialDefense': 130,
+            'defense': 110,
+            'specialDefense': 120,
             'speed': 85,
         },
         'gender': {
@@ -26449,7 +26449,7 @@ export const pokemonList = createPokemonArray(
         'type': [PokemonType.Fairy],
         'base': {
             'hitpoints': 92,
-            'attack': 130,
+            'attack': 120,
             'specialAttack': 80,
             'defense': 115,
             'specialDefense': 115,
@@ -26471,7 +26471,7 @@ export const pokemonList = createPokemonArray(
         'type': [PokemonType.Fairy, PokemonType.Steel],
         'base': {
             'hitpoints': 92,
-            'attack': 170,
+            'attack': 150,
             'specialAttack': 80,
             'defense': 115,
             'specialDefense': 115,
@@ -26492,7 +26492,7 @@ export const pokemonList = createPokemonArray(
         'type': [PokemonType.Fighting],
         'base': {
             'hitpoints': 92,
-            'attack': 130,
+            'attack': 120,
             'specialAttack': 80,
             'defense': 115,
             'specialDefense': 115,
@@ -26514,10 +26514,10 @@ export const pokemonList = createPokemonArray(
         'type': [PokemonType.Fighting, PokemonType.Steel],
         'base': {
             'hitpoints': 92,
-            'attack': 130,
+            'attack': 120,
             'specialAttack': 80,
-            'defense': 145,
-            'specialDefense': 145,
+            'defense': 140,
+            'specialDefense': 140,
             'speed': 128,
         },
         'eggCycles': 120,
